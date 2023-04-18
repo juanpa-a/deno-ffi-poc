@@ -1,4 +1,8 @@
+import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
+
+// serve((req: Request) => new Response("Hello World")); 
 // ffi.ts
+
 
 // Determine library extension based on
 // your OS.
@@ -27,4 +31,5 @@ const dylib = Deno.dlopen(
 // Call the symbol `add`
 const result = dylib.symbols.add(35, 34); // 69
 
-console.log(`Result from external addition of 35 and 34: ${result}`);
+serve((req: Request) => new Response(result))
+// console.log(`Result from external addition of 35 and 34: ${result}`);
