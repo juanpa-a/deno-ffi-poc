@@ -30,6 +30,7 @@ const dylib = Deno.dlopen(
 
 // Call the symbol `add`
 const result = dylib.symbols.add(35, 34); // 69
+console.log(result)
 
 serve((req: Request) => new Response(result))
 // console.log(`Result from external addition of 35 and 34: ${result}`);
